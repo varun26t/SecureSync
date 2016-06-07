@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 import os
+import sys
 import socket
+from PIL import Image
+import numpy as np 
 
-TEMPORARY_FILE = '../data/TEMPORARY_FILE'
+TEMPORARY_FILE = os.path.join(os.path.join('/data/TEMPORARY_FILE'))
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect(("",8426))
@@ -11,15 +14,18 @@ k = ' '
 size = 512
 
 while 1:
-    k= input("Select file type\n1.Text File\n2.Image File\n3.Video")
+    k= input("Select file type\n1.Text File\n2.Image File\nChoice:\t")
     k = int (k)
+    file_name = input("enter absolut path for the file *upload not available*")
     if(k == 1 ):
-        file_name = input("enter absolut path for the file *upload not available*")
-        with open(file_name,'rb') as file:
-            with open(TEMPORARY_FILE, 'wb') as temp:
+        with open(file_name,'rb+') as file:
+            with open(TEMPORARY_FILE, 'wb+') as temp:
                 temp.write(file)
-    if( k == 2 or k == 3 ):
-        pass
+    if( k == 2 ):
+        image = Image.open(file_name)
+        image_array = np.array(image)
+        with open(TEMPORARY_FILE, 'wb+') as temp:
+            temp.write(image_array)
 '''
 #!/usr/bin/python
 # TCP client example
