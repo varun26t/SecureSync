@@ -11,7 +11,6 @@ k = ' '
 size = 512
 
 while 1:
-<<<<<<< HEAD
     k= input("Select file type\n1.Text File\n2.Image File\n3.Video")
     k = int (k)
     if(k == 1 ):
