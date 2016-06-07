@@ -11,16 +11,15 @@ k = ' '
 size = 512
 
 while 1:
-	k= input("Select file type\n1.Text File\n2.Image File\n3.Video")
-	k = (int) k
-	if(k == 1 ):
-		file_name = input("enter absolut path for the file *upload not available*")
-		with open(file_name,'rb') as file:
+    k= input("Select file type\n1.Text File\n2.Image File\n3.Video")
+    k = int (k)
+    if(k == 1 ):
+        file_name = input("enter absolut path for the file *upload not available*")
+        with open(file_name,'rb') as file:
             with open(TEMPORARY_FILE, 'wb') as temp:
                 temp.write(file)
-			#write to a file 
-	if( k == 2 or k == 3 ):
-		pass
+    if( k == 2 or k == 3 ):
+        pass
 
 
 
