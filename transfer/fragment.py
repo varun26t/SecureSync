@@ -10,5 +10,6 @@ def make_fragments(data, number):
 	if(number > 0 ):
 		temp = number
 		while temp > 0:
-			pass
+			temp = temp - 1
+			file = open(data)
 

@@ -2,3 +2,4 @@ venv/
 *.txt
 *.md
 data/
+crypto/key
