@@ -5,8 +5,6 @@ from Crypto.PublicKey import ElGamal
 from base64 import b64encode
 from ..SecureSync import key
 
-user = Random.new()
-
 def get_key():
 	key = ElGamal.generate(256, get_random_bytes)
 	comps = ('p','g','y','x')
