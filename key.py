@@ -16,7 +16,7 @@ class databaseCon:
 		db = client.sync
 		collections = db.users
 		self.user_data = {
-			'user': {}
+			'user': {
 				'username': user
 				'pub_key': y
 				'priv_key': x
