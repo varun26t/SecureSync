@@ -1,10 +1,37 @@
+import pymongo
+from datetime import datetime
 
-key_pair = {}
+class databaseCon:
 
-def set_key(user, pub_key, priv_key):
-	key_pair.update({ user: [pub_key, priv_key], })
-	return True
+	user_data = {}
+	__collections = ''
 
-def rertive_key(user):
-	key_array = key_pair.get(user)
-	return key_array
+	def __init__():
+		client = pymongo.MongoClient("localhost", 27017)
+		db = client.sync
+		collections = db.users
+
+	def __init__(self, user, y, x):
+		client = pymongo.MongoClient("localhost", 27017)
+		db = client.sync
+		collections = db.users
+		self.user_data = {
+			'user': {}
+				'username': user
+				'pub_key': y
+				'priv_key': x
+				'datetime': datetime.utcnow()
+			},
+		}
+
+	def insertinto(self):
+		self.collections.insert_one(self.user_data)
+
+		
+	def finduser(self, username):
+		key_dict = self.collections.find_one({{'username':username}})
+		return key_dict
+
+
+
+
