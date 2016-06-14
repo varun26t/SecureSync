@@ -13,12 +13,18 @@ class Fragment:
 
 		counter = 0
 
-		with open(self.TEMP_FILE, 'rb+') as temp:
-			temp_name = '../data/send/fragment'+str(counter)
-			with open(temp_name, 'wb') as out_file:
-				for chunk in iter(partial(temp.read, 512), ''):
-					out_file.write(chunk)
-		# return True
+		with open(self.TEMP_FILE, 'r') as temp:
+			for chunk in temp.read(512):
+				if chunk: 
+					temp_name = '../data/send/fragment'+str(counter)
+					counter = counter + 1
+					with open(temp_name, 'w') as out_file:
+						out_file.write(chunk)
+				if not chunk:
+					break		
+
+
+			
 
 				
 if __name__ == '__main__':
